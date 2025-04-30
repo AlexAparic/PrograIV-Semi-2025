@@ -1,0 +1,163 @@
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .register-wrapper {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .background-box {
+      background-color: #2C4E53;
+      width: 850px;
+      height: 450px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 0 40px;
+    }
+
+    .register-box {
+      background-color: #92BDC5;
+      width: 430px;
+      height: 500px;
+      padding: 3rem;
+      border-radius: 12px;
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .register-box .icon {
+      font-size: 3rem;
+      color: #2C4E53;
+      margin-bottom: 1rem;
+    }
+
+    .register-box h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .register-box p {
+      color: #f8f9fa;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .register-box label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.5rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .register-box .form-control {
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+      padding: 14px;
+      font-size: 1rem;
+    }
+
+    .btn-verificar {
+      background-color: #2C4E53;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      padding: 14px;
+      font-size: 1.1rem;
+      width: 100%;
+      border: none;
+    }
+
+    /* Panel derecho - estados */
+    .right-panel {
+      width: 350px;
+      height: 300px;
+      padding: 2rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* Estado inicial (recuperación contraseña) */
+    .password-recovery .icon-lock {
+      font-size: 3rem;
+      color: #92BDC5;
+      margin-bottom: 1rem;
+    }
+
+    .password-recovery h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .password-recovery a {
+      color: #92BDC5;
+      text-decoration: underline;
+      font-size: 1rem;
+    }
+
+    /* Estado verificado */
+    .verified-message {
+      display: none; /* Inicialmente oculto */
+    }
+
+    .verified-message .icon-check {
+      font-size: 3rem;
+      color: #1A9C68;
+      margin-bottom: 1rem;
+    }
+
+    .verified-message p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .logo-text {
+      font-size: 26px;
+      font-weight: bold;
+      color: #2C4E53;
+    }
+
+    .logo-text i {
+      color: #1A9C68;
+    }
