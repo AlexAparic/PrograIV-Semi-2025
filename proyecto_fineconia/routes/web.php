@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\RegisterController;
 
 // Página principal muestra el registro
 Route::get('/', function () {
-    return view('REGRISTRO'); // Asumiendo que tienes esta vista en resources/views
+    return view('LOGIN'); // Asumiendo que tienes esta vista en resources/views
 });
 
 // Registro de usuario

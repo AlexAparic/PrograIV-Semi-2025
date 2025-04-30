@@ -8,6 +8,10 @@
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   @vite('resources/css/login-registro.css')
+
+  <!-- AlertifyJS -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
 </head>
 <body>
 
@@ -24,56 +28,30 @@
         <a href="{{ route('register') }}" class="btn-register">REGÍSTRATE</a>
       </div>
 
-      <!-- Caja de Login que sobresale -->
+      <!-- Caja de Login -->
       <div class="login-box">
         <h3>Iniciar Sesión</h3>
 
-        {{-- Mensaje de éxito desde la verificación --}}
-        @if(session('success'))
-          <div class="alert alert-success">
-            {{ session('success') }}
-          </div>
-        @endif
-
-        {{-- Errores de validación --}}
-        @if($errors->any())
-          <div class="alert alert-danger">
-            <ul class="mb-0">
-              @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
+        <form id="loginForm" method="POST" action="{{ route('login') }}">
           @csrf
 
           <label for="email" class="form-label">Correo electrónico</label>
           <input
             type="email"
-            class="form-control @error('email') is-invalid @enderror"
+            class="form-control"
             id="email"
             name="email"
             value="{{ old('email') }}"
-            required
           >
-          @error('email')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-          
+
           <label for="password" class="form-label mt-3">Contraseña</label>
           <input
             type="password"
-            class="form-control @error('password') is-invalid @enderror"
+            class="form-control"
             id="password"
             name="password"
-            required
           >
-          @error('password')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-          
+
           <div class="forgot-password mt-2">
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
@@ -84,7 +62,38 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS (opcional) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AlertifyJS -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+  <!-- Validación cliente con Alertify -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email || !password) {
+        e.preventDefault();
+        alertify.error('Todos los campos son obligatorios.');
+      }
+    });
+  </script>
+
+  <!-- Mensajes desde el backend con Alertify -->
+  @if(session('success'))
+    <script>
+      alertify.success("{{ session('success') }}");
+    </script>
+  @endif
+
+  @if($errors->any())
+    <script>
+      @foreach($errors->all() as $error)
+        alertify.error("{{ $error }}");
+      @endforeach
+    </script>
+  @endif
+
 </body>
 </html>
